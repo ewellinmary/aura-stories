@@ -1,0 +1,215 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Aura Experience | Stories</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: sticky stage nav + phone mockups in a wrapping grid, each phone followed by its production notes */
+:root{
+  --bg:#F7F4F1; --surface:#FFFFFF; --fg:#2E3336; --muted:#6E6669; --line:#E4DCDF;
+  --pink:#6B1A35; --pink-soft:#F3E9D2; --graf:#393F42; --ok:#2F7D5B; --okbg:#E3F2EA;
+  --display:'Bodoni Moda', 'Didot', Georgia, serif; --body:'DM Sans', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#17181A; --surface:#212326; --fg:#EDE7E9; --muted:#A79DA1; --line:#33363A;
+  --pink:#D8BC79; --pink-soft:#3A2A22; --graf:#0E0F10; --ok:#6CC79C; --okbg:#1E3329; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17181A; --surface:#212326; --fg:#EDE7E9; --muted:#A79DA1; --line:#33363A;
+  --pink:#D8BC79; --pink-soft:#3A2A22; --graf:#0E0F10; --ok:#6CC79C; --okbg:#1E3329; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+header.top{display:flex;flex-wrap:wrap;gap:20px 32px;align-items:flex-end;justify-content:space-between;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.brand{display:flex;gap:20px;align-items:center}
+.brand img{width:120px;height:auto;background:#6B1A35;border-radius:14px;padding:12px 14px}
+:root[data-theme="dark"] .brand img{filter:brightness(1.15)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(28px,4vw,40px);line-height:1.1;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:6px 0 0;max-width:60ch}
+.stats{display:flex;gap:24px;font-variant-numeric:tabular-nums}
+.stats b{display:block;font-family:var(--display);font-size:28px;font-weight:500;color:var(--pink);line-height:1}
+.stats span{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:24px 0 8px}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14px}
+.note h3{margin:0 0 6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
+.note ul{margin:0;padding-left:18px}.note li{margin:3px 0}
+.days{display:flex;gap:8px;margin-top:22px;flex-wrap:wrap}.days button{font:inherit;font-size:14px;font-weight:700;padding:10px 18px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;text-align:left;line-height:1.25}.days button small{display:block;font-weight:500;font-size:12px;color:var(--muted)}.days button[aria-selected=true]{background:var(--pink);border-color:var(--pink);color:#fff}.days button[aria-selected=true] small{color:rgba(255,255,255,.8)}:root[data-theme=dark] .days button[aria-selected=true]{color:#1a1210}
+nav.stages{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:8px;overflow-x:auto;padding:14px 0;margin-top:12px;border-bottom:1px solid var(--line);scrollbar-width:thin}
+nav.stages a{flex:0 0 auto;text-decoration:none;color:var(--fg);font-size:13px;font-weight:600;padding:7px 12px;border-radius:99px;border:1px solid var(--line);background:var(--surface);white-space:nowrap}
+nav.stages a:hover,nav.stages a:focus-visible{border-color:var(--pink);color:var(--pink);outline:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 0}
+.btn{font:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:8px 14px;border-radius:99px;cursor:pointer}
+.btn:hover,.btn:focus-visible{border-color:var(--pink);color:var(--pink);outline:none}
+.btn.primary{background:var(--pink);border-color:var(--pink);color:#fff}
+.btn.primary:hover{opacity:.9;color:#fff}
+section.stage{padding-top:36px;scroll-margin-top:70px}
+.stage-head{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;margin-bottom:18px}
+.stage-head .eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pink)}
+.stage-head h2{font-family:var(--display);font-weight:400;font-size:26px;margin:0;text-wrap:balance}
+.stage-head .time{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.stage-head .flag{font-size:12px;font-weight:600;background:var(--pink-soft);color:var(--pink);padding:3px 10px;border-radius:99px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px 22px}
+.story{display:flex;flex-direction:column;gap:12px;min-width:0}
+.story.done .phone{outline:3px solid var(--ok);outline-offset:3px}
+.phone{position:relative;aspect-ratio:9/16;max-width:100%;border-radius:26px;overflow:hidden;background:var(--graf);color:#fff;box-shadow:0 14px 30px rgba(40,20,30,.18);border:6px solid #111}
+.phone .bg{position:absolute;inset:0;background:radial-gradient(120% 80% at 30% 20%,#5b4a50 0%,#2b2629 55%,#151314 100%)}
+.phone.black .bg{background:#000}
+.phone.warm .bg{background:radial-gradient(120% 90% at 70% 10%,#8a5a5f 0%,#3b2a2e 55%,#171213 100%)}
+.phone.rose .bg{background:radial-gradient(120% 90% at 30% 80%,#7d2643 0%,#4a1424 55%,#1a0a10 100%)}
+.phone.gold .bg{background:radial-gradient(120% 90% at 70% 20%,#9c8146 0%,#4a3b1c 55%,#17120a 100%)}
+.phone .bars{position:absolute;top:10px;left:10px;right:10px;display:flex;gap:3px}
+.phone .bars i{flex:1;height:2px;border-radius:2px;background:rgba(255,255,255,.35)}
+.phone .bars i.on{background:#fff}
+.phone .who{position:absolute;top:20px;left:12px;right:12px;display:flex;align-items:center;gap:7px;font-size:11px;font-weight:600}
+.phone .who .av{width:22px;height:22px;border-radius:50%;background:#6B1A35;display:grid;place-items:center;overflow:hidden}
+.phone .who .av img{width:18px;height:auto}
+.phone .who em{font-style:normal;font-weight:400;opacity:.7}
+.phone .scene{position:absolute;top:52px;left:12px;right:12px;font-size:10.5px;line-height:1.35;color:rgba(255,255,255,.72);font-style:italic}
+.phone .scene::before{content:"cena  ";font-style:normal;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:9px;color:rgba(255,255,255,.55)}
+.phone .txt{position:absolute;left:18px;right:18px;top:60%;transform:translateY(-50%);text-align:center;font-family:var(--body);font-weight:500;font-size:12.5px;line-height:1.4;text-wrap:balance;text-shadow:0 1px 6px rgba(0,0,0,.55)}
+.phone .txt p{margin:0 0 6px}.phone .txt p:last-child{margin:0}
+.phone .txt.caps{top:50%;font-family:var(--body);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+.phone .txt.caps p:first-child{font-family:var(--display);font-weight:400;font-size:30px;letter-spacing:.06em}
+.phone .txt.audio{font-family:var(--body);font-size:12px;font-style:italic;opacity:.9}
+.phone .tags{position:absolute;left:12px;right:12px;bottom:16px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.phone .tags span.lnk{background:#6B1A35;color:#fff}
+.phone .tags span{background:#fff;color:#6B1A35;font-family:var(--body);font-weight:700;font-size:11px;padding:4px 9px;border-radius:7px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.phone .badge{position:absolute;top:30px;right:12px;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.18);padding:2px 7px;border-radius:99px}
+.meta{display:flex;flex-direction:column;gap:8px;min-width:0}
+.meta .n{display:flex;align-items:baseline;gap:8px}
+.meta .n b{font-family:var(--display);font-weight:500;font-size:20px;color:var(--pink);font-variant-numeric:tabular-nums}
+.meta .n h4{margin:0;font-size:15px;font-weight:700;line-height:1.3}
+.pill{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:99px;background:var(--pink-soft);color:var(--pink);white-space:nowrap}
+.pill.new{background:var(--okbg);color:var(--ok)}
+.pill.rc{background:#6B1A35;color:#fff}
+:root[data-theme="dark"] .pill.rc{background:#D8BC79;color:#1a1210}
+.pill.rev{background:#FBE6D4;color:#8a4a12}
+.meta dl{margin:0;display:grid;gap:6px;font-size:13.5px}
+.meta dt{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.meta dd{margin:0}
+.meta .acts{display:flex;flex-wrap:wrap;gap:8px}
+.meta label.chk{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;cursor:pointer}
+.meta label.chk input{accent-color:var(--ok);width:16px;height:16px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:99px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+table.tags{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+table.tags th,table.tags td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line)}
+table.tags th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+table.tags td:last-child{color:var(--pink);font-weight:600}
+.tblwrap{overflow-x:auto}
+.foot{margin-top:40px;color:var(--muted);font-size:13px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <img id="logo" alt="Aura Experience">
+      <div>
+        <h1>Roteiro de stories</h1>
+        <p class="sub">Cronograma de stories | 9, 10 e 11 de novembro · Mirante da Colyna, Monte Verde.<br><b>Conceito:</b> <em>Brindamos ao que construímos até aqui e ao futuro que nos espera.</em><br> Cada tela mostra o texto que vai sobre a imagem. Embaixo estão a cena, a direção para a Aline e o botão de copiar.</p>
+      </div>
+    </div>
+    <div class="stats"><div><b id="st-total">0</b><span>stories</span></div><div><b id="st-done">0</b><span>revisados</span></div></div>
+  </header>
+
+  <div class="notes">
+    <div class="note"><h3>Direção criativa</h3><ul>
+      <li>Mostrar a experiência antes de explicá-la.</li>
+      <li>Construir desejo pelas pessoas, pelo ambiente e pelas interações.</li>
+      <li>Usar textos curtos, com personalidade, sem narrar o óbvio.</li>
+      <li>Principal ajuste de linguagem: nos stories de cobertura, usar identificação objetiva ou nenhuma frase. Reservar as provocações para os momentos de estratégia e os textos emocionais para a revelação e o aquecimento do RARA Circle.</li>
+      <li>Assim, o público acompanha a experiência com naturalidade, entende o peso do encerramento e começa a perceber que algo novo está sendo construído.</li>
+    </ul></div>
+    <div class="note"><h3>Aquecimento do RARA Circle</h3><ul>
+      <li>Marcado com o selo <b>RARA Circle</b> e com o número RC quando repete a numeração do roteiro.</li>
+      <li>Começa sutil no dia 9, ganha força no dia 10 e vira o centro da narrativa no dia 11.</li>
+      <li>Entra entre os registros da programação, não como campanha separada.</li>
+    </ul></div>
+    <div class="note"><h3>Para a Aline</h3><ul>
+      <li>A seleção final deve considerar o que acontecer de mais interessante.</li>
+      <li>A revelação e o que vem depois só são publicados depois da revelação presencial.</li>
+      <li>Não precisamos publicar todos os stories obrigatoriamente. A quantidade representa os registros possíveis.</li>
+    </ul></div>
+  </div>
+
+  <div class="toolbar">
+    <button class="btn primary" id="copyAll" type="button">Copiar roteiro completo</button>
+    <button class="btn" id="clearDone" type="button">Limpar revisados</button>
+  </div>
+
+  <div class="days" role="tablist" aria-label="Dias">
+    <button type="button" role="tab" data-day="1">Dia 1<small>Segunda, 09/11</small></button>
+    <button type="button" role="tab" data-day="2">Dia 2<small>Terça, 10/11</small></button>
+    <button type="button" role="tab" data-day="3">Dia 3<small>Quarta, 11/11</small></button>
+    <button type="button" role="tab" data-day="0">Parceiras<small>Marcações</small></button>
+  </div>
+  <nav class="stages" id="nav" aria-label="Etapas"></nav>
+  <main id="main"></main>
+
+  <section class="stage" id="marcacoes" data-day="0">
+    <div class="stage-head"><span class="eyebrow">Resumo</span><h2>Parceiras e marcações</h2></div>
+    <div class="tblwrap"><table class="tags"><thead><tr><th>Momento</th><th>Marcar</th></tr></thead><tbody id="tagtable"></tbody></table></div>
+  </section>
+  <p class="foot">As parceiras devem aparecer organicamente ao longo da programação: Nova MC na bolsa, Graniê nos kits de boas-vindas e despedida, Lush nos presentes, Nyá na experiência da manhã de terça, Bravo Produções nos bastidores, Camila nos registros fotográficos e Mirante da Colyna nos ambientes e na hospedagem.</p>
+  <p class="foot">Antes de publicar, confirmar os @ do Mirante da Colyna, da Bravo Produções, da Nova MC e da Nyá.</p>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const LOGO="data:image/png;base64,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";
+const S=[{"id": "d1-chegada", "eyebrow": "Dia 1 | Segunda, 09/11", "title": "Welcome Coffee e chegada", "time": "16h30", "nar": "O valor de estar no ambiente certo", "items": [{"t": "Abertura oficial", "scene": "Vídeo de abertura com takes do hotel, detalhes da produção e ambientação.", "text": ["AURA EXPERIENCE 2026", "Brindamos ao que construímos até aqui e ao futuro que nos espera."], "dir": "Abre a cobertura. Marcar o hotel e a Bravo já aqui.", "bg": "black", "tags": ["Mirante da Colyna", "Bravo Produções"], "caps": true, "num": "1"}, {"t": "Bastidores da recepção", "scene": "Montagem, mesa de boas-vindas, ambientação e detalhes da produção.", "text": ["Os últimos detalhes antes de receber as empresárias."], "dir": "Texto pequeno, as imagens conduzem.", "tags": ["Bravo Produções"], "num": "2"}, {"t": "Chegadas", "scene": "Vídeos espontâneos das participantes chegando, reencontros e abraços.", "text": ["AURA Experience, oficialmente começamos."], "dir": "Sem pose. Priorizar abraços e reencontros.", "bg": "warm", "num": "3"}, {"t": "Welcome Coffee", "scene": "Participantes reunidas, café e primeiras conversas.", "text": ["Um café, várias empresárias e uma experiência surreal a ser vivida."], "dir": "Conversas em primeiro plano.", "num": "4"}], "day": 1}, {"id": "d1-checkin", "eyebrow": "Dia 1 | Segunda, 09/11", "title": "Check-in e produção", "time": "17h15", "items": [{"t": "Kit de boas-vindas", "scene": "Presentes e personalizações do kit.", "text": ["Os detalhes da recepção."], "dir": "Closes nos presentes. Cada parceira aparece no próprio item.", "bg": "gold", "tags": ["Nova MC", "Graniê", "Lush"], "num": "5"}, {"t": "Bastidores da produção", "scene": "Preparativos, looks e participantes se arrumando.", "text": ["Preparativos para o jantar de abertura."], "dir": "Clima leve de bastidor.", "bg": "warm", "num": "6"}], "day": 1}, {"id": "d1-noite", "eyebrow": "Dia 1 | Segunda, 09/11", "title": "Noite de Queijos e Vinhos", "time": "19h · look dourado", "items": [{"t": "Looks dourados", "scene": "Participantes chegando ao jantar, mostrando os looks.", "text": ["Dourado foi a escolha para a primeira noite."], "dir": "Corpo inteiro e detalhes do dourado.", "bg": "gold", "num": "7"}, {"t": "Abertura com a Tayná", "scene": "Trecho real da Tayná recebendo as participantes.", "text": ["Sem texto: manter o áudio original"], "dir": "Trecho real da Tayná recebendo as participantes. Texto na tela: nenhum, manter o áudio original.", "bg": "rose", "audio": true, "num": "8"}, {"t": "Queijos e vinhos", "scene": "Sequência de takes da mesa, taças, queijos, mulheres conversando e risadas.", "text": ["Primeira noite do AURA Experience."], "dir": "Montagem rápida com música.", "num": "9"}, {"t": "As conexões", "scene": "Mulheres conversando, rindo e interagindo.", "text": ["Tem coisas que só acontecem quando a gente sai da rotina e senta à mesa com as pessoas certas."], "dir": "Conversas reais, sem pose.", "bg": "warm", "num": "10"}, {"t": "Complemento da cobertura da noite", "scene": "Vídeo das mulheres conversando durante o jantar.", "text": ["Imagine fazer parte de um ambiente onde você encontra mulheres que compartilham os seus valores, ampliam o seu repertório e te ajudam a enxergar novas possibilidades."], "dir": "RARA Circle | Segunda: construção de desejo. Esse é o primeiro gatilho de pertencimento. Ainda não falamos de mudanças ou de um novo produto.", "bg": "rose", "rc": true, "num": "RC 10"}, {"t": "Brinde", "scene": "Brinde coletivo.", "text": ["Brindamos ao que construímos até aqui e ao futuro que nos espera."], "dir": "Fechar o dia com as taças subindo.", "bg": "gold", "num": "11"}], "day": 1}, {"id": "d2-manha", "eyebrow": "Dia 2 | Terça, 10/11", "title": "Café da manhã", "time": "08h", "nar": "A importância das experiências e das escolhas que fazemos para continuar crescendo", "items": [{"t": "A manhã", "scene": "Vista do hotel, café e ambientação.", "text": ["Monte Verde, segundo dia."], "dir": "Identificação objetiva, sem narrar o óbvio.", "num": "12"}, {"t": "As mulheres", "scene": "Participantes conversando durante o café.", "text": ["É curioso como algumas das melhores ideias aparecem fora de uma sala de reunião."], "dir": "Vídeo espontâneo.", "bg": "warm", "num": "13"}], "day": 2}, {"id": "d2-nya", "eyebrow": "Dia 2 | Terça, 10/11", "title": "Experiência AURA & Nyá", "time": "09h30 · look fitness", "items": [{"t": "Preparação", "scene": "Looks fitness, camisetas e detalhes da experiência.", "text": ["Experiência AURA + Nyá."], "dir": "Mostrar as camisetas e os detalhes.", "tags": ["Nyá"], "num": "14"}, {"t": "Experiência", "scene": "Takes das participantes durante a atividade.", "text": ["Sem texto"], "dir": "Texto na tela: nenhum. Deixar as imagens conduzirem.", "bg": "black", "num": "15"}, {"t": "As interações", "scene": "Mulheres participando e interagindo.", "text": ["Ter tempo para viver também faz parte do plano."], "dir": "Risadas e movimento.", "bg": "warm", "num": "16"}, {"t": "Registro coletivo", "scene": "Foto ou vídeo do grupo após a experiência.", "text": ["Nyá no AURA Experience."], "dir": "Foto do grupo inteiro.", "tags": ["Nyá"], "num": "17"}], "day": 2}, {"id": "d2-almoco", "eyebrow": "Dia 2 | Terça, 10/11", "title": "Almoço", "time": "12h30", "items": [{"t": "A mesa", "scene": "Participantes reunidas no almoço.", "text": ["Quem você tem por perto também influencia o tamanho das suas decisões."], "dir": "Conversas em primeiro plano, sem foco no prato.", "bg": "warm", "num": "18"}], "day": 2}, {"id": "d2-estrategia", "eyebrow": "Dia 2 | Terça, 10/11", "title": "Conexão & Estratégia", "time": "14h às 16h30", "items": [{"t": "A conversa", "scene": "Tayná conduzindo o encontro.", "text": ["Hoje, a conversa é sobre os próximos passos."], "dir": "Plano aberto da sala.", "bg": "rose", "num": "19"}, {"t": "O aquecimento", "scene": "Participantes acompanhando a conversa.", "text": ["Você teria coragem de encerrar algo que deu certo?"], "dir": "Provocação. Reação das participantes.", "num": "20"}, {"t": "Reflexão", "scene": "Trecho real da Tayná falando sobre escolhas, ciclos ou crescimento.", "text": ["Sem texto: priorizar a fala original"], "dir": "Caso essa fala aconteça. Texto na tela: nenhum. Priorizar a fala original.", "bg": "rose", "audio": true, "opt": true, "num": "21"}], "day": 2}, {"id": "d2-revelacao", "eyebrow": "Dia 2 | Terça, 10/11", "title": "A revelação", "time": "Depois da revelação presencial", "flag": "Publicar só depois da revelação", "items": [{"t": "O anúncio", "scene": "Trecho do vídeo oficial.", "text": ["Depois de tudo o que vivemos, chegou o momento de encerrar o AURA como conhecemos."], "dir": "Áudio do vídeo oficial (não é texto na tela).", "bg": "black", "audio": true, "num": "22"}, {"t": "Os sete anos", "scene": "Montagem de vídeos antigos do Master Tayná Rubbo e dos encontros do AURA.", "text": ["Sete anos, muitas versões de nós mesmas."], "dir": "Emocional, com música.", "bg": "warm", "num": "23"}, {"t": "O motivo", "scene": "Trecho do vídeo oficial.", "text": ["Essa decisão não vem porque o AURA deixou de dar certo, pelo contrário, ele deu tão certo que nos transformou."], "dir": "Áudio do vídeo oficial (não é texto na tela).", "bg": "black", "audio": true, "num": "24"}, {"t": "O que vem depois (repost do vídeo oficial do feed)", "scene": "Vídeo das participantes após a apresentação ou da Tayná falando sobre o futuro.", "text": ["O que nos trouxe até aqui não é, necessariamente, o que vai nos levar adiante."], "dir": "Repost do vídeo oficial do feed.", "bg": "rose", "num": "25"}, {"t": "A trajetória", "scene": "Imagens antigas do AURA e do Master Tayná Rubbo.", "text": ["Há sete anos, começamos a reunir mulheres que queriam crescer nos negócios sem abrir mão da vida."], "dir": "RARA Circle | Terça: a história e a transformação. Após o anúncio: sequência de três stories (1 de 3).", "bg": "warm", "rc": true, "num": "RC 23"}, {"t": "A evolução", "scene": "Imagens atuais das participantes e das experiências.", "text": ["Hoje, essa história cresceu, ganhou novos significados e nos mostrou que ainda podemos ir muito mais longe."], "dir": "RARA Circle | Terça: a história e a transformação. Após o anúncio: sequência de três stories (2 de 3).", "rc": true, "num": "RC 24"}, {"t": "A expectativa", "scene": "Vídeo curto da Tayná após a revelação.", "text": ["E o próximo capítulo dessa história está mais perto do que você imagina."], "dir": "RARA Circle | Terça: a história e a transformação. Após o anúncio: sequência de três stories (3 de 3).", "bg": "rose", "rc": true, "num": "RC 25"}], "day": 2}, {"id": "d2-fondue", "eyebrow": "Dia 2 | Terça, 10/11", "title": "Noite do Fondue", "time": "19h · look branco", "items": [{"t": "Looks brancos", "scene": "Participantes chegando ao jantar.", "text": ["Noite do branco."], "dir": "Corpo inteiro e detalhes do branco.", "num": "26"}, {"t": "Fondue", "scene": "Detalhes do jantar, mesa e ambiente.", "text": ["Segunda noite do AURA Experience."], "dir": "Closes da mesa e do fondue.", "bg": "warm", "num": "27"}, {"t": "As mulheres", "scene": "Participantes reunidas, vídeo espontâneo.", "text": ["Quando o ambiente faz sentido, as conexões acontecem naturalmente."], "dir": "Sem pose.", "bg": "rose", "num": "28"}, {"t": "Brinde", "scene": "Brinde coletivo.", "text": ["Às histórias que construímos e às que ainda vamos viver."], "dir": "Fechar o dia com as taças subindo.", "bg": "gold", "num": "29"}], "day": 2}, {"id": "d3-piscina", "eyebrow": "Dia 3 | Quarta, 11/11", "title": "Experiência AURA: Piscina Aquecida", "time": "08h30 · traje de banho", "nar": "O que nasceu nesses sete anos agora pode alcançar mais mulheres", "items": [{"t": "A manhã", "scene": "Vista, piscina aquecida e detalhes do ambiente.", "text": ["Última manhã no Mirante da Colyna."], "dir": "Identificação objetiva.", "tags": ["Mirante da Colyna"], "num": "30"}, {"t": "A experiência", "scene": "Participantes aproveitando a piscina.", "text": ["Seu maior empreendimento é a sua vida."], "dir": "Leveza e descanso.", "bg": "warm", "num": "31"}, {"t": "As conexões", "scene": "Participantes conversando ou aproveitando o momento.", "text": ["Durante sete anos, vimos o que acontece quando mulheres com objetivos e valores semelhantes se encontram."], "dir": "Conversas reais.", "num": "32"}], "day": 3}, {"id": "d3-circle", "eyebrow": "Dia 3 | Quarta, 11/11", "title": "O desejo pelo próximo movimento", "time": "Depois da piscina", "flag": "Aquecimento RARA Circle", "items": [{"t": "A comunidade", "scene": "Participantes reunidas.", "text": ["Imagine fazer parte de um ambiente onde você encontra mulheres que compartilham os seus valores, ampliam o seu repertório e te ajudam a enxergar novas possibilidades."], "dir": "RARA Circle | Quarta: o desejo pelo próximo movimento. Inserir após a experiência da piscina aquecida.", "bg": "rose", "rc": true, "num": "36"}, {"t": "A visão", "scene": "Tayná com as participantes.", "text": ["É esse tipo de conexão que eu quero levar para ainda mais mulheres."], "dir": "Tayná em primeiro plano, com as participantes ao redor.", "bg": "warm", "rc": true, "num": "37"}, {"t": "Interativo", "scene": "Enquete sobre uma imagem da experiência.", "text": ["Você sente falta de estar em um ambiente com mulheres que vivem desafios parecidos com os seus?"], "dir": "Enquete com as opções: ( ) Muito ( ) É o que estou buscando.", "tags": ["Muito", "É o que estou buscando"], "rc": true, "num": "38"}, {"t": "A evolução", "scene": "Montagem curta com imagens do AURA e da RARA.", "text": ["Tudo o que construímos nos últimos sete anos está dando origem a uma nova forma de viver a comunidade RARA."], "dir": "Montagem rápida com música.", "bg": "rose", "rc": true, "num": "39"}, {"t": "A promessa", "scene": "Momentos de conexão e experiências.", "text": ["Mais mulheres, mais repertório, mais conexões e novas experiências."], "dir": "Ritmo crescente.", "bg": "gold", "rc": true, "num": "40"}, {"t": "A antecipação", "scene": "Fundo com a identidade visual da RARA ou vídeo curto da Tayná.", "text": ["RARA CIRCLE… Em breve."], "dir": "Fecha o aquecimento.", "bg": "black", "caps": true, "rc": true, "num": "41"}], "day": 3}, {"id": "d3-despedida", "eyebrow": "Dia 3 | Quarta, 11/11", "title": "Check-out e despedida", "time": "11h30", "items": [{"t": "Kit de despedida", "scene": "Presentes de despedida.", "text": ["Um último presente para levar para casa."], "dir": "Closes nos presentes.", "bg": "gold", "tags": ["Graniê"], "num": "33"}, {"t": "Despedida", "scene": "Abraços, registros finais e despedidas.", "text": ["Tudo o que construímos continua."], "dir": "Emoção real, sem pose.", "bg": "warm", "num": "34"}, {"t": "Encerramento", "scene": "Vídeo com os melhores momentos da viagem.", "text": ["AURA EXPERIENCE 2026", "Brindamos ao que construímos até aqui e ao futuro que nos espera."], "dir": "Fecha a cobertura com a mesma frase da abertura.", "bg": "black", "caps": true, "num": "35"}], "day": 3}];
+const TAGS=[["Abertura, ambientes e hospedagem", "Mirante da Colyna Hotel & Spa (confirmar o @)"], ["Abertura e bastidores", "Bravo Produções (confirmar o @)"], ["Bolsa do kit de boas-vindas", "Nova MC (confirmar o @)"], ["Kits de boas-vindas e despedida", "Graniê (@granieconfeitaria)"], ["Presentes", "Lush (@lushmaison)"], ["Experiência da manhã de terça", "Nyá (confirmar o @)"], ["Registros fotográficos", "Camila (@cahpereirafotografia)"]];
+const $=s=>document.querySelector(s);
+$("#logo").src=LOGO;
+let done={};try{done=JSON.parse(localStorage.getItem("aura-done")||"{}")}catch(e){}
+function save(){try{localStorage.setItem("aura-done",JSON.stringify(done))}catch(e){}}
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+let n=0;const all=[];
+S.forEach(st=>{
+  const a=document.createElement("a");a.href="#"+st.id;a.dataset.day=st.day;a.textContent=st.title;$("#nav").appendChild(a);
+  const sec=document.createElement("section");sec.className="stage";sec.id=st.id;sec.dataset.day=st.day;
+  sec.innerHTML=`<div class="stage-head"><span class="eyebrow">${st.eyebrow}</span><h2>${esc(st.title)}</h2><span class="time">${esc(st.time)}</span>${st.flag?`<span class="flag">${esc(st.flag)}</span>`:""}</div>${st.nar?`<p class="sub" style="margin:-8px 0 18px">Narrativa do dia: ${esc(st.nar)}</p>`:""}<div class="grid"></div>`;
+  const g=sec.querySelector(".grid");
+  st.items.forEach((it,i)=>{
+    n++;const key="s"+n;all.push({n,st,it});
+    const bars=st.items.map((_,k)=>`<i class="${k<=i?"on":""}"></i>`).join("");
+    const cls=["phone",it.bg||""].join(" ");
+    const txtCls=it.caps?"txt caps":it.audio?"txt audio":"txt";
+    const card=document.createElement("article");card.className="story"+(done[key]?" done":"");
+    card.innerHTML=`<div class="${cls}" role="img" aria-label="Story ${esc(it.num)}: ${esc(it.text.join(" "))}">
+      <div class="bg"></div><div class="bars">${bars}</div>
+      <div class="who"><span class="av"><img src="${LOGO}" alt=""></span>taynarubbo <em>agora</em></div>
+      ${it.audio?'<span class="badge">áudio original</span>':""}
+      <div class="scene">${esc(it.scene)}</div>
+      <div class="${txtCls}">${it.text.map(p=>`<p>${esc(p)}</p>`).join("")}</div>
+      ${it.tags?`<div class="tags">${it.tags.map(t=>`<span${it.link?' class="lnk"':''}>${esc(t)}</span>`).join("")}</div>`:""}
+    </div>
+    <div class="meta">
+      <div class="n"><b>${esc(String(it.num).padStart(2,"0"))}</b><h4>${esc(it.t)}</h4>${it.rc?'<span class="pill rc">RARA Circle</span>':""}${it.opt?'<span class="pill">Opcional</span>':""}</div>
+      <dl><dt>Direção para a Aline</dt><dd>${esc(it.dir)}</dd></dl>
+      <div class="acts"><button class="btn" type="button" data-copy="${n}">Copiar texto</button>
+      <label class="chk"><input type="checkbox" id="chk-${key}" ${done[key]?"checked":""}> Revisado</label></div>
+    </div>`;
+    card.querySelector("input").addEventListener("change",e=>{done[key]=e.target.checked;card.classList.toggle("done",e.target.checked);save();count()});
+    g.appendChild(card);
+  });
+  $("#main").appendChild(sec);
+});
+
+$("#tagtable").innerHTML=TAGS.map(([a,b])=>`<tr><td>${esc(a)}</td><td>${esc(b)}</td></tr>`).join("");
+function count(){$("#st-total").textContent=all.length;$("#st-done").textContent=Object.values(done).filter(Boolean).length}
+count();
+function showDay(d){document.querySelectorAll(".days button").forEach(b=>b.setAttribute("aria-selected",b.dataset.day==d));document.querySelectorAll("section.stage").forEach(s=>s.hidden=s.dataset.day!=d);document.querySelectorAll("#nav a").forEach(a=>a.hidden=a.dataset.day!=d);$("#nav").hidden=d==0;try{localStorage.setItem("aura-day",d)}catch(e){}}
+document.querySelectorAll(".days button").forEach(b=>b.addEventListener("click",()=>{showDay(b.dataset.day);document.querySelector(".days").scrollIntoView({block:"start",behavior:"smooth"})}));
+let d0="1";try{d0=localStorage.getItem("aura-day")||"1"}catch(e){}
+showDay(d0);
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),1800)}
+function storyText(x){let s=x.it.text.join("\n");if(x.it.tags)s+="\n"+x.it.tags.join(" ");return s}
+async function copy(txt,msg){try{await navigator.clipboard.writeText(txt);toast(msg)}catch(e){const r=document.createElement("textarea");r.value=txt;document.body.appendChild(r);r.select();try{document.execCommand("copy");toast(msg)}catch(_){toast("Selecione e copie manualmente")}r.remove()}}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-copy]");if(!b)return;const x=all[+b.dataset.copy-1];copy(storyText(x),"Texto do story "+x.it.num+" copiado")});
+$("#copyAll").addEventListener("click",()=>{let out="AURA EXPERIENCE 2026 | 09 a 11.11 | Roteiro de stories\n";let cur="";all.forEach(x=>{if(x.st!==cur){cur=x.st;out+=`\n${x.st.eyebrow.toUpperCase()} | ${x.st.title} (${x.st.time})\n`}out+=`\nSTORY ${x.it.num} | ${x.it.t}${x.it.opt?" (opcional)":""}${x.it.rc?" [RARA Circle]":""}\nCena: ${x.it.scene}\nTexto na tela: ${x.it.text.join(" / ")}\n${x.it.tags?"Marcação: "+x.it.tags.join(", ")+"\n":""}Direção: ${x.it.dir}\n`});copy(out,"Roteiro completo copiado")});
+$("#clearDone").addEventListener("click",()=>{done={};save();document.querySelectorAll(".story").forEach(c=>{c.classList.remove("done");c.querySelector("input").checked=false});count();toast("Revisões limpas")});
+</script>
+
+</body></html>
