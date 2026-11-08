@@ -195,11 +195,13 @@ try{curDay=localStorage.getItem("aura-day")||"1"}catch(e){}
 const key=id=>V+":"+id;const stt=id=>STATE[key(id)]||{};
 function sync(c,m){const el=$("#sync");el.className="sync "+(c||"");el.querySelector("span").textContent=m}
 function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),1900)}
-async function load(){sync("saving","Carregando…");try{const r=await fetch(API+"?action=stories&t="+Date.now());const j=await r.json();if(j&&j.ok){STATE=j.data||{};sync("","Tudo salvo");render()}else throw 0}catch(e){sync("err","Sem conexão com a planilha. Recarregue a página.")}}
+function local(){try{return JSON.parse(localStorage.getItem("aura-posted")||"{}")}catch(e){return {}}}
+function keepLocal(){try{localStorage.setItem("aura-posted",JSON.stringify(STATE))}catch(e){}}
+async function load(){STATE=local();render();sync("saving","Carregando…");try{const r=await fetch(API+"?action=stories&t="+Date.now());const j=await r.json();if(j&&j.ok){const d=j.data||{};Object.keys(d).forEach(k=>{if(k.startsWith(V+":")){const a=STATE[k],b=d[k];if(!a||(b.at||"")>(a.at||""))STATE[k]=b}});keepLocal();sync("","Tudo salvo");render()}else throw 0}catch(e){sync("","Salvo neste aparelho")}}
 let queue=Promise.resolve();
 function save(id,patch){const k=key(id);STATE[k]=Object.assign({},STATE[k],patch,{at:new Date().toISOString()});render();sync("saving","Salvando…");
-  const body=new URLSearchParams({action:"story",key:k,value:JSON.stringify(STATE[k])});
-  queue=queue.then(()=>fetch(API,{method:"POST",mode:"no-cors",body})).then(()=>sync("","Tudo salvo")).catch(()=>{sync("err","Não salvou. Tente de novo.");toast("Não consegui salvar. Confira a internet.")})}
+  keepLocal();const body=new URLSearchParams({action:"story",key:k,data:JSON.stringify(STATE[k])});
+  queue=queue.then(()=>fetch(API,{method:"POST",mode:"no-cors",body})).then(()=>sync("","Tudo salvo")).catch(()=>sync("","Salvo neste aparelho"))}
 function phone(it,i,total){
   const bars=Array.from({length:total},(_,k)=>`<i class="${k<=i?"on":""}"></i>`).join("");
   const tc=it.caps?"txt caps":it.audio?"txt audio":"txt";
